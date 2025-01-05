@@ -113,8 +113,6 @@ class Testers(db.Model):
     project_name_id = db.Column(db.Integer, db.ForeignKey("project_name.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     user = db.relationship("Users", backref="testers")
-
-
     # Relationship with Project_name
     project_name = db.relationship("Project_name", backref="testers")
     tester_name = db.relationship("Tester_name", backref="testers")
@@ -330,4 +328,50 @@ class TestCaseCreationStatus(db.Model):
             'test_case_rejected': self.test_case_rejected,
             'project_name_id': self.project_name_id,
             "user_id": self.user_id
+        }
+
+
+
+class Metrics(db.Model):
+    __tablename__ = 'metrics'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    month = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+
+    defectLeakage = db.Column(db.Float, nullable=False)  # Corrected here
+    defectDensity = db.Column(db.Float, nullable=False)  # Corrected here
+    defectRemovalEfficiency = db.Column(db.Float, nullable=False)  # Corrected here
+    automationCoverage = db.Column(db.Float, nullable=False)  # Corrected here
+    testCasesEfficiency = db.Column(db.Float, nullable=False)  # Corrected here
+    testerProductivity = db.Column(db.Float, nullable=False)  # Corrected here
+    defectSeverityIndex = db.Column(db.Float, nullable=False)  # Corrected here
+    defectFixRate = db.Column(db.Float, nullable=False)  # Corrected here
+    defectRejectionRatio = db.Column(db.Float, nullable=False)  # Corrected here
+    meanTimeToFindDefect = db.Column(db.Float, nullable=False)  # Corrected here
+    meanTimeToRepair = db.Column(db.Float, nullable=False)  # Corrected here
+
+    project_name_id = db.Column(db.Integer, db.ForeignKey("project_name.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user = db.relationship("Users", backref="metrics")
+
+    project = db.relationship('Project_name', backref='metrics')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'month': self.month,
+            'date': self.date,
+            'defectLeakage': self.defectLeakage,
+            'defectDensity': self.defectDensity,
+            'defectRemovalEfficiency': self.defectRemovalEfficiency,
+            'automationCoverage': self.automationCoverage,
+            'testCasesEfficiency': self.testCasesEfficiency,
+            'testerProductivity': self.testerProductivity,
+            'defectSeverityIndex': self.defectSeverityIndex,
+            'defectFixRate': self.defectFixRate,
+            'defectRejectionRatio': self.defectRejectionRatio,
+            'meanTimeToFindDefect': self.meanTimeToFindDefect,
+            'meanTimeToRepair': self.meanTimeToRepair,
+            'project_name_id': self.project_name_id,
+            'user_id': self.user_id
         }

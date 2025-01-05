@@ -135,6 +135,7 @@ import RegisterPage from "../components/Admin/RegisterPage";
 import ProtectedRoute from "./ProtectedRoute"; // Import the ProtectedRoute component
 import ViewMatrix from "../components/manager_view/ViewMatrix";
 import MatrixInput from "../components/Admin/MatrixInput";
+import MatrixView from "../pages/metrix_view";
 
 
 const Routers = () => {
@@ -200,6 +201,7 @@ const Routers = () => {
           <Route path="viewproject" element={<AdminProjectTable />} />
           <Route path="adminaddproject" element={<AdminAddProjectWithDetails />} />
           <Route path="add-user" element={<UserManagement />} />
+          <Route path="matrix-view" element={<MatrixView />} />
           {/* <Route path="viewproject" element={<AdminProjectTable />} /> */}
         </Route>
       </Route>

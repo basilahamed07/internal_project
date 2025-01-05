@@ -8,14 +8,7 @@ const ProjectDetails = () => {
   const navigate = useNavigate(); // For navigating back to the previous page
 
   const [projectName, setProjectName] = useState(''); // Project Name state
-  const [projectData, setProjectData] = useState({
-    BuildStatus: [],
-    DefectAcceptedRejected: [],
-    New_defects: [],
-    TestCaseCreationStatus: [],
-    Test_execution_status: [],
-    Total_Defect_Status: [],
-  });
+  const [projectData, setProjectData] = useState();
   const [error, setError] = useState(''); // Error state
   const [loading, setLoading] = useState(false); // Loading state
 
@@ -43,8 +36,10 @@ const ProjectDetails = () => {
       });
 
       if (response.status === 200) {
+        // console.log("hello")
+        // console.log(response.data)
         setProjectName(response.data.project_name || 'Project Name');
-        setProjectData(response.data.test_project_details || {});
+        setProjectData(response.data );
       } else {
         throw new Error('Failed to fetch project details.');
       }
@@ -69,6 +64,8 @@ const ProjectDetails = () => {
   };
 
   const renderTable = (data, title, columns, columnMapping) => {
+    console.log("hello")
+    console.log(data)
     if (!data || data.length === 0) {
       return (
         <Card className="mb-4">
@@ -154,12 +151,16 @@ const ProjectDetails = () => {
       {loading && <div className="alert alert-info">Loading...</div>}
 
       {/* Render tables for project data with appropriate column mappings */}
-      {renderTable(
+      {projectData && renderTable(
         projectData.BuildStatus,
         'Build Status',
         ['Month', 'Builds Accepted', 'Builds Rejected', 'Total Build Received', 'Date'],
         { 'Builds Accepted': 'builds_accepted', 'Builds Rejected': 'builds_rejected', 'Total Build Received': 'total_build_received', 'Date': 'date' }
       )}
+
+
+
+
 
       {/* Render other tables as needed */}
       {/* Example for Test Case Creation Status, and others */}

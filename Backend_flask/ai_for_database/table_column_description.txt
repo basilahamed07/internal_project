@@ -1,0 +1,82 @@
+
+1. Users Table:
+   - One-to-many relationships:
+     - A user can have multiple projects (Users → Project_name).
+     - A user can have multiple project details (Users → Project_details).
+     - A user can have multiple testers (Users → Testers).
+     - A user can have multiple tester names (Users → Tester_name).
+     - A user can have multiple new defects (Users → New_defects).
+     - A user can have multiple test execution statuses (Users → Test_execution_status).
+     - A user can have multiple total defect statuses (Users → Total_Defect_Status).
+     - A user can have multiple build statuses (Users → BuildStatus).
+     - A user can have multiple defect accepted/rejected records (Users → DefectAcceptedRejected).
+     - A user can have multiple test case creation statuses (Users → TestCaseCreationStatus).
+
+2. Project_name Table:
+   - One-to-many relationships:
+     - A project can have multiple project details (Project_name → Project_details).
+     - A project can have multiple testers (Project_name → Testers).
+     - A project can have multiple new defects (Project_name → New_defects).
+     - A project can have multiple test execution statuses (Project_name → Test_execution_status).
+     - A project can have multiple total defect statuses (Project_name → Total_Defect_Status).
+     - A project can have multiple build statuses (Project_name → BuildStatus).
+     - A project can have multiple defect accepted/rejected records (Project_name → DefectAcceptedRejected).
+     - A project can have multiple test case creation statuses (Project_name → TestCaseCreationStatus).
+
+   - Many-to-one relationship:
+     - Each project is associated with one user via user_id (Project_name → Users).
+
+3. Project_details Table:
+   - Many-to-one relationships:
+     - Each project detail is associated with one project (Project_details → Project_name).
+     - Each project detail is associated with one user (Project_details → Users).
+
+4. Testers Table:
+   - Many-to-one relationships:
+     - Each tester is associated with one project (Testers → Project_name).
+     - Each tester is associated with one user (Testers → Users).
+     - Each tester is associated with one tester name (Testers → Tester_name).
+
+5. Tester_name Table:
+   - Many-to-one relationship:
+     - Each tester name is associated with one user (Tester_name → Users).
+
+6. New_defects Table:
+   - Many-to-one relationships:
+     - Each new defect is associated with one project (New_defects → Project_name).
+     - Each new defect is associated with one user (New_defects → Users).
+
+7. Test_execution_status Table:
+   - Many-to-one relationships:
+     - Each test execution status is associated with one project (Test_execution_status → Project_name).
+     - Each test execution status is associated with one user (Test_execution_status → Users).
+
+8. Total_Defect_Status Table:
+   - Many-to-one relationships:
+     - Each total defect status is associated with one project (Total_Defect_Status → Project_name).
+     - Each total defect status is associated with one user (Total_Defect_Status → Users).
+
+9. BuildStatus Table:
+   - Many-to-one relationships:
+     - Each build status is associated with one project (BuildStatus → Project_name).
+     - Each build status is associated with one user (BuildStatus → Users).
+
+10. DefectAcceptedRejected Table:
+   - Many-to-one relationships:
+     - Each defect accepted/rejected record is associated with one project (DefectAcceptedRejected → Project_name).
+     - Each defect accepted/rejected record is associated with one user (DefectAcceptedRejected → Users).
+
+11. TestCaseCreationStatus Table:
+   - Many-to-one relationships:
+     - Each test case creation status is associated with one project (TestCaseCreationStatus → Project_name).
+     - Each test case creation status is associated with one user (TestCaseCreationStatus → Users).
+
+---
+
+Summary of Relationships:
+1. One-to-Many Relationships:
+   - A **User** can own multiple **Projects**.
+   - A **Project** can have multiple **Project_details**, **Testers**, **New_defects**, **Test_execution_status**, **Total_Defect_Status**, **BuildStatus**, **DefectAcceptedRejected**, and **TestCaseCreationStatus** records.
+
+2. Many-to-One Relationships:
+   - Each **Project_detail**, **Tester**, **New_defect**, **Test_execution_status**, **Total_Defect_Status**, **BuildStatus**, **DefectAcceptedRejected**, and **TestCaseCreationStatus** record is associated with one **Project** and one **User**.

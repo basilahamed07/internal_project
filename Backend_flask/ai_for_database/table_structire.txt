@@ -1,0 +1,13 @@
+users: id, username, password, role
+project_name: id, project_name, user_id
+project_details: id, project_name_id, RAG, tester_count, billable, nonbillable, billing_type, automation, ai_used, RAG_details, user_id
+testers: id, billable, tester_name_id, project_name_id, user_id
+tester_name: id, tester_name, user_id
+new_defects: id, date, month, regression_defect, functional_defect, defect_reopened, uat_defect, project_name_id, user_id
+test_execution_status: id, month, date, total_execution, tc_execution, pass_count, fail_count, no_run, blocked, project_name_id, user_id
+total_defect_status: id, month, date, total_defect, defect_closed, open_defect, critical, high, medium, low, project_name_id, user_id
+build_status: id, month, date, total_build_received, builds_accepted, builds_rejected, project_name_id, user_id
+defect_accepted_rejected: id, month, date, total_defects, dev_team_accepted, dev_team_rejected, project_name_id, user_id
+test_case_creation_status: id, month, date, total_test_case_created, test_case_approved, test_case_rejected, project_name_id, user_id
+
+

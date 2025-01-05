@@ -188,12 +188,16 @@ const Sidebar = () => {
                 <Text clicked={click} hovered={hovered}>view project</Text>
               </Item>
               <Item activeClassName="active" to="/AdminPanel/project-trends">
-                <img src={expandall} alt="Manage Buzz" />
-                <Text clicked={click} hovered={hovered}>Manage Buzz</Text>
+                <img src={expandall} alt="Manage inputs" />
+                <Text clicked={click} hovered={hovered}>Manage input</Text>
               </Item>
               <Item activeClassName="active" to="/AdminPanel/add-user">
-                <img src={expandall} alt="Manage Buzz" />
+                <img src={expandall} alt="Manage inputs" />
                 <Text clicked={click} hovered={hovered}>add user</Text>
+              </Item>
+              <Item activeClassName="active" to="/AdminPanel/matrix-view">
+                <img src={expandall} alt="matrix view" />
+                <Text clicked={click} hovered={hovered}>matrix input</Text>
               </Item>
             </>
           )}
@@ -205,8 +209,8 @@ const Sidebar = () => {
                 <Text clicked={click} hovered={hovered}>Projects</Text>
               </Item>
               <Item activeClassName="active" to="/TestLead/project-trends">
-                <img src={expandall} alt="Manage Buzz" />
-                <Text clicked={click} hovered={hovered}>Manage Buzz</Text>
+                <img src={expandall} alt="Manage input" />
+                <Text clicked={click} hovered={hovered}>Manage input</Text>
               </Item>
               <Item activeClassName="active" to="/TestLead/MatrixInput">
                 <img src={Projects} alt="Add Project" />

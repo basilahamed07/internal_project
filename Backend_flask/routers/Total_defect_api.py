@@ -16,16 +16,21 @@ def total_defect_api(app):
 
             # Get the uploaded file from the request
             file = request.files.get('file')
-            print("DFGHJKLJHGFDS : ", file)
+            # print("DFGHJKLJHGFDS : ", file)
             if not file:
                 return jsonify({"error": "No file uploaded"}), 400
 
             # Read the Excel file using pandas
             excel_data = pd.read_excel(file, sheet_name=None)  # sheet_name=None to read all sheets
             # print("DFGHJKLJHGFDSDFGHJKJHGFDFGHJKL : ", excel_data)
-            print()
             # print(excel_data)
-            print(type(excel_data["Manage Defects"]))
+
+            # print(type(excel_data["Manage Defects"]))
+
+            # name_of_interest = 'regression_defect'  # Adjust this for the row you're interested in
+            # value = df.loc[df['name'] == name_of_interest, 'Value'].values
+            
+
 
             df1 = excel_data["Manage Defects"]
             df2 = excel_data["Test Execution Status"]
@@ -34,6 +39,10 @@ def total_defect_api(app):
             df5 = excel_data["Defect AcceptedRejected"]
             df6 = excel_data["Test Case Creation Status"]
 
+            # final_merge =// pd.concat([df1, df2, df3,df4,df5,df6], ignore_index=True)
+            # print(final_merge)
+   
+            
             dataframe_collection = [df1, df2, df3, df4, df5, df6]
             dataframe_names = ["Manage Defects", "Test Execution Status", "Total Defect Status", "Build Status", "Defect AcceptedRejected", "Test Case Creation Status"]
 

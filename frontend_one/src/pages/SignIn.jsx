@@ -63,7 +63,7 @@ const SlidingAuth = () => {
 
           // Navigate based on the role in the response
           if (user.role === 'TestLead') {
-            navigate('/TestLead/add-project');
+            navigate('/TestLead/project-info');
           } else if (user.role === 'admin') {
             navigate('/AdminPanel/viewproject');
           } else if (user.role === 'manager') {
